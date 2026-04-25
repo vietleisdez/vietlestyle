@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nike x Adidas Style - LeBron XXI</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0;
+            height: 100%;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #000;
+            overflow-x: hidden; /* Tránh cuộn ngang không cần thiết */
+        }
+
+        /* 1. Header */
+        header {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            position: fixed;
+            width: 100%;
+            top: 0; left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .logo { font-weight: 900; font-size: 20px; letter-spacing: -1px; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { text-decoration: none; color: #111; font-weight: bold; font-size: 14px; }
+
+        /* 2. Hero Section Container */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full màn hình */
+            overflow: hidden;
+        }
+
+        /* Video Nền */
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 3. Khối chữ phong cách Adidas */
+        .hero-content {
+            position: absolute;
+            bottom: 12%; /* Đẩy lên một chút cho thoáng */
+            left: 5%;
+            z-index: 10;
+        }
+
+        .title-main {
+            background-color: #fff;
+            color: #000;
+            display: table; 
+            padding: 8px 15px;
+            font-size: 32px; /* Tăng kích thước tiêu đề */
+            font-weight: 900;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .description-box {
+            background-color: #fff;
+            color: #000;
+            padding: 10px 15px;
+            max-width: 450px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Nút bấm */
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-weight: bold;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            transition: 0.3s ease;
+            border: 1px solid #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #000;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .btn-primary span {
+            margin-left: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NIKE</div>
+        <nav>
+            <ul>
+                <li><a href="#">New & Featured</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+        </nav>
+        <div style="cursor: pointer;">🔍 ♡ 🛒</div>
+    </header>
+
+    <div class="hero-container">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="adidas.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+
+        <div class="hero-content">
+            <h1 class="title-main">NƠI DÀNH CHO TẤT CẢ HỘI VIÊN</h1>
+            <div class="description-box">
+                Bộ sưu tập độc quyền dành riêng cho bạn. Sở hữu những lựa chọn tốt nhất để nâng tầm phong cách ngay hôm nay.
+            </div>
+            
+            <div class="button-group">
+                <a href="https://www.adidas.com.vn" class="btn-primary">KHÁM PHÁ NGAY <span>&rarr;</span></a>
+                <a href="san-pham-le-bron.html" class="btn-primary">MUA NGAY <span>&rarr;</span></a>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

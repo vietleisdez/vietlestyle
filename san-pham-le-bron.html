@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike LeBron XXI 'Motor King' EP</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #fff;
+            color: #111;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-bottom: 1px solid #f5f5f5;
+            position: sticky; /* Giữ header khi cuộn */
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #111;
+            font-weight: bold;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .product-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .product-images {
+            display: flex;
+            flex: 1.5;
+            gap: 15px;
+            max-height: 600px; /* Giới hạn chiều cao khu vực ảnh */
+        }
+
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto; /* Cho phép cuộn nếu nhiều ảnh */
+            padding-right: 5px;
+        }
+
+        /* Tùy chỉnh thanh cuộn nhỏ cho thumbnails */
+        .thumbnails::-webkit-scrollbar { width: 4px; }
+        .thumbnails::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+
+        .thumbnails img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            background: #f6f6f6;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .thumbnails img:hover, .thumbnails img.active {
+            border-color: #111;
+        }
+
+        .main-image-container {
+            flex-grow: 1;
+            background-color: #f6f6f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .main-image-container img {
+            max-width: 100%;
+            height: auto;
+            transition: 0.3s; /* Hiệu ứng mượt khi đổi ảnh */
+        }
+
+        .product-info { flex: 1; }
+        .product-title h1 { font-size: 28px; margin: 0 0 5px 0; font-weight: 600; }
+        .product-category { font-size: 16px; color: #757575; margin-bottom: 20px; }
+        .product-price { font-size: 20px; font-weight: bold; margin-bottom: 30px; }
+
+        .size-header { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: bold; }
+        .size-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 30px; }
+        .size-item {
+            border: 1px solid #e5e5e5;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+        .size-item:hover { border-color: #111; }
+        
+        /* Đánh dấu size đang chọn */
+        .size-item.selected { border-color: #111; background: #f9f9f9; }
+
+        .action-btns button {
+            width: 100%;
+            padding: 18px;
+            border-radius: 30px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+        .btn-black { background-color: #111; color: #fff; }
+        .btn-black:hover { background-color: #444; }
+        .btn-outline { background-color: transparent; border: 1px solid #e5e5e5 !important; }
+        .btn-outline:hover { border-color: #111 !important; }
+
+        @media (max-width: 768px) {
+            .product-container { flex-direction: column; }
+            .product-images { flex-direction: column-reverse; max-height: none; }
+            .thumbnails { flex-direction: row; overflow-x: auto; overflow-y: hidden; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="font-weight: 900; font-size: 20px; cursor: pointer;" onclick="window.location.href='index.html'">NIKE</div>
+        <nav class="nav-links">
+            <a href="#">New & Featured</a>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Sale</a>
+        </nav>
+        <div style="cursor: pointer;">🔍 ♡ 🛒</div>
+    </header>
+
+    <div class="product-container">
+        <div class="product-images">
+            <div class="thumbnails" id="gallery">
+                <img src="giayadidas (1).png" alt="thumb" onclick="changeImage(this)">
+                <img src="giayadidas (2).png" alt="thumb" onclick="changeImage(this)">
+                <img src="giayadidas (3).png" alt="thumb" onclick="changeImage(this)">
+                <img src="giayadidas (4).png" alt="thumb" onclick="changeImage(this)">
+                <img src="giayadidas (5).png" alt="thumb" onclick="changeImage(this)">
+                <img src="giayadidas (6).png" alt="thumb" onclick="changeImage(this)">
+                <img src="giayadidas (7).png" alt="thumb" onclick="changeImage(this)">
+                <img src="giayadidas (8).png" alt="thumb" onclick="changeImage(this)">
+            </div>
+            <div class="main-image-container">
+                <img src="giayadidas (1).png" alt="LeBron XXI" id="mainImg">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="product-title">
+                <h1>LeBron XXI 'Motor King' EP</h1>
+            </div>
+            <div class="product-category">Basketball Shoes</div>
+            <div class="product-price">5.869.000₫</div>
+
+            <div class="size-section">
+                <div class="size-header">
+                    <span>Select Size</span>
+                    <span style="color: #757575; font-weight: normal; text-decoration: underline; cursor: pointer;">Size Guide</span>
+                </div>
+                <div class="size-grid">
+                    <div class="size-item" onclick="selectSize(this)">EU 40</div>
+                    <div class="size-item" onclick="selectSize(this)">EU 40.5</div>
+                    <div class="size-item" onclick="selectSize(this)">EU 41</div>
+                    <div class="size-item" onclick="selectSize(this)">EU 42</div>
+                    <div class="size-item" onclick="selectSize(this)">EU 42.5</div>
+                    <div class="size-item" onclick="selectSize(this)">EU 43</div>
+                </div>
+            </div>
+
+            <div class="action-btns">
+                <button class="btn-black">Add to Bag</button>
+                <button class="btn-outline">Favourite ♡</button>
+            </div>
+
+            <p style="font-size: 14px; line-height: 1.6; color: #111; margin-top: 20px;">
+                Cùng LeBron James chinh phục mọi đỉnh cao với phiên bản 'Motor King'. Thiết kế tối ưu cho tốc độ và sức mạnh trên sân đấu.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Hàm đổi ảnh chính khi click vào thumbnail
+        function changeImage(element) {
+            document.getElementById('mainImg').src = element.src;
+            
+            // Xóa class active ở các ảnh khác và thêm vào ảnh vừa chọn
+            let thumbs = document.querySelectorAll('.thumbnails img');
+            thumbs.forEach(img => img.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Hàm chọn size
+        function selectSize(element) {
+            let sizes = document.querySelectorAll('.size-item');
+            sizes.forEach(size => size.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
