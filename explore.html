@@ -3,34 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adidas adiClub Days</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Adidas adiClub Days Layout</title>
+    <style>
+        /* CSS RESET & GENERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* BANNER GRID - HÀNG NGANG */
+        .banner-grid {
+            display: flex; /* Đưa 3 cột nằm ngang */
+            width: 100%;
+            height: 85vh; /* Chiếm 85% chiều cao màn hình */
+        }
+
+        .column {
+            flex: 1; /* Chia đều độ rộng cho 3 cột */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .column img.bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Đảm bảo ảnh lấp đầy không gian */
+            display: block;
+        }
+
+        /* NỘI DUNG CHỮ TRÊN CỘT 1 */
+        .text-box {
+            position: absolute;
+            bottom: 60px;
+            left: 5%;
+            z-index: 10;
+        }
+
+        .title-bg, .desc-bg {
+            background-color: white;
+            color: black;
+            padding: 4px 8px;
+            display: table; /* Nền trắng ôm sát độ dài chữ */
+            text-transform: uppercase;
+        }
+
+        .title-bg {
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-bottom: 2px;
+        }
+
+        .desc-bg {
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        /* NÚT BẤM */
+        .btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btns a {
+            background: white;
+            color: black;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+        }
+
+        .btns a:after {
+            content: " →";
+            margin-left: 10px;
+        }
+
+        /* LOGO ADICLUB Ở CỘT 2 */
+        .logo-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            width: 90%;
+            pointer-events: none;
+        }
+
+        .logo-center h1 {
+            font-size: 5vw; /* Font size theo chiều rộng màn hình */
+            line-height: 0.85;
+            text-transform: lowercase;
+            font-style: italic;
+        }
+
+        .logo-center h1 span {
+            font-size: 8vw;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        /* THANH MÀU XANH PHÍA DƯỚI */
+        .green-footer {
+            width: 100%;
+            height: 15vh;
+            background-color: #467865;
+        }
+
+        /* RESPONSIVE: Chuyển thành hàng dọc trên điện thoại */
+        @media (max-width: 768px) {
+            .banner-grid {
+                flex-direction: column;
+                height: auto;
+            }
+            .column {
+                height: 60vh;
+            }
+            .logo-center h1 { font-size: 15vw; }
+            .logo-center h1 span { font-size: 20vw; }
+        }
+    </style>
 </head>
 <body>
 
     <div class="main-wrapper">
         <section class="banner-grid">
             <div class="column">
-                <img src="link_anh_1.jpg" alt="Adidas 1">
+                <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/viVN/Images/adiclub-days-sept-vlc-hp-glp-teaser-carousel-d_tcm209-1065171.jpg" class="bg-img" alt="Member">
                 <div class="text-box">
-                    <h2 class="title-bg">NƠI DÀNH CHO TẤT CẢ HỘI VIÊN</h2>
-                    <p class="desc-bg">Bộ sưu tập độc quyền trong Tuần lễ Hội viên adiClub Days.<br>Sở hữu những lựa chọn tốt nhất ngay hôm nay.</p>
+                    <div class="title-bg">NƠI DÀNH CHO TẤT CẢ HỘI VIÊN</div>
+                    <div class="desc-bg">Bộ sưu tập độc quyền trong Tuần lễ Hội viên adiClub Days.<br>Sở hữu những lựa chọn tốt nhất ngay hôm nay.</div>
                     <div class="btns">
-                        <a href="#">THAM GIA NGAY &rarr;</a>
-                        <a href="#">ĐÃ THAM GIA? &rarr;</a>
+                        <a href="#">THAM GIA NGAY</a>
+                        <a href="#">ĐÃ THAM GIA?</a>
                     </div>
                 </div>
             </div>
 
             <div class="column">
-                <img src="link_anh_2.jpg" alt="Adidas 2">
+                <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/viVN/Images/adiclub-days-sept-vlc-hp-glp-teaser-carousel-d-2_tcm209-1065174.jpg" class="bg-img" alt="Logo Section">
                 <div class="logo-center">
-                    <img src="logo-adiclub-days.png" alt="adiClub DAYS">
-                    </div>
+                    <h1>adiclub<br><span>DAYS</span></h1>
+                </div>
             </div>
 
             <div class="column">
-                <img src="link_anh_3.jpg" alt="Adidas 3">
+                <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/viVN/Images/adiclub-days-sept-vlc-hp-glp-teaser-carousel-d-3_tcm209-1065178.jpg" class="bg-img" alt="Style">
             </div>
         </section>
 
@@ -39,106 +172,3 @@
 
 </body>
 </html>
-<style>
-     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica', Arial, sans-serif;
-}
-
-.main-wrapper {
-    width: 100%;
-    overflow: hidden;
-}
-
-.banner-grid {
-    display: flex; /* Kích hoạt hàng ngang */
-    width: 100%;
-    height: 85vh; /* Chiều cao vùng ảnh */
-}
-
-.column {
-    flex: 1; /* Chia đều 3 cột bằng nhau */
-    position: relative;
-    overflow: hidden;
-    border-right: 2px solid transparent; /* Tạo khoảng cách cực nhỏ nếu muốn */
-}
-
-.column img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Giữ tỉ lệ ảnh không bị móp */
-    display: block;
-}
-
-/* Phần chữ ở góc trái dưới */
-.text-box {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    z-index: 10;
-    max-width: 450px;
-}
-
-.title-bg {
-    background-color: white;
-    padding: 5px 10px;
-    display: table; /* Để background ôm sát chữ */
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 2px;
-}
-
-.desc-bg {
-    background-color: white;
-    padding: 5px 10px;
-    display: table;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 15px;
-}
-
-/* Nút bấm */
-.btns {
-    display: flex;
-    gap: 10px;
-}
-
-.btns a {
-    background: white;
-    color: black;
-    text-decoration: none;
-    padding: 12px 20px;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border: 1px solid #000;
-    transition: 0.3s;
-}
-
-.btns a:hover {
-    background: black;
-    color: white;
-}
-
-/* Logo ở cột giữa */
-.logo-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%; /* Điều chỉnh tùy kích thước logo */
-    text-align: center;
-}
-
-.logo-center img {
-    width: 100%;
-    height: auto;
-}
-
-/* Thanh màu xanh phía dưới */
-.green-footer {
-    width: 100%;
-    height: 15vh;
-    background-color: #467865; /* Màu xanh đậm như hình */
-}
